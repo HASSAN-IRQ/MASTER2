@@ -1,6 +1,6 @@
 do
 --local function help()
-local function iDev1(msg,matches)
+local function master(msg,matches)
     if matches[1] == 'help' then
   local help_text = tostring(_config.help_text)
   return help_text
@@ -15,7 +15,7 @@ return {
         
     },
 
-  run = iDev1
+  run = master
 }
 
 end
