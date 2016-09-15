@@ -1,5 +1,5 @@
 do
-function iDev1(msg, matches)
+function master(msg, matches)
        if not is_momod(msg) then
         return "only 4 admin"
        end
@@ -16,6 +16,6 @@ return {
   patterns = {
     "^[/#!]([Ll]inkpv)$"
   },
-  run = iDev1
+  run = master
 }
 end
