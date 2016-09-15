@@ -1,3 +1,4 @@
+--MASTER TEAM
 do
 local function callbackres(extra, success, result)
 --vardump(result)
@@ -37,7 +38,7 @@ function run(msg, matches)
 end
 return {
     patterns = {
-      "^[#!/]invite (.*)$"
+      "^[#!/]inv (.*)$"
     },
     run = run
 }
