@@ -132,26 +132,24 @@ else
   echo -e "\033[38;5;208m"   
   echo -e " ╭━╮╭━╮╱╱╱╱╱╭╮               "
   echo -e " ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "
-  echo -e " ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━┳━━╮      "
-  echo -e " ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫━━┫      "
-  echo -e " ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃┣━━┃      "
-  echo -e " ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯╰━━╯      "
-  echo -e "       ╭━━━╮                 " 
-  echo -e "       ╰╮╭╮┃                 "     
-  echo -e "       ╱┃┃┃┣━━┳╮╭╮           "
-  echo -e "       ╱┃┃┃┃┃━┫╰╯┃           " 
-  echo -e "       ╭╯╰╯┃┃━╋╮╭╯           " 
-  echo -e "       ╰━━━┻━━╯╰╯            \033[0;00m"
+  echo -e " ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+  echo -e " ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+  echo -e " ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+  echo -e " ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+  echo -e "                                               " 
+  echo -e "                                               "     
+  echo -e "                                               " 
+  echo -e "                                     \033[0;00m"
   echo -e "\e[36m"                                      
-  echo -e "MastersDev" 
+  echo -e "MASTER TEAM" 
    cat << EOF
  $f1  ▀▄   ▄▀     $f2 ▄▄▄████▄▄▄    $f3  ▄██▄     $f4  ▀▄   ▄▀  
  $f1 ▄█▀███▀█▄    $f2███▀▀██▀▀███   $f3▄█▀██▀█▄   $f4 ▄█▀███▀█▄ 
  $f1█▀███████▀█   $f2▀▀███▀▀███▀▀   $f3▀█▀██▀█▀   $f4█▀███████▀█
  $f1▀ ▀▄▄ ▄▄▀ ▀   $f2 ▀█▄ ▀▀ ▄█▀    $f3▀▄    ▄▀   $f4▀ ▀▄▄ ▄▄▀ ▀
 EOF
-echo -e "\e[100m          MastersDev          \e[00;37;40m"
-echo -e "\e[01;34m           by iDev1           \e[00;37;40m"
+echo -e "\e[100m          MASTER TEAM          \e[00;37;40m"
+echo -e "\e[01;34m     BY @Mortadha1997           \e[00;37;40m"
 echo ""
    
   if [ -f data/config.lua ]; then
@@ -174,5 +172,5 @@ echo ""
     
   fi
   
-  ./tg/bin/telegram-cli -k ./tg/tg-server.pub -s ./BoTMasters/iDev1bot.lua -l 1 -E $@
+  ./tg/bin/telegram-cli -k ./tg/tg-server.pub -s ./master/master.lua -l 1 -E $@
 fi
