@@ -1,3 +1,4 @@
+--MASTER TEAM
 do
 
 -- Check Member
@@ -936,7 +937,7 @@ local function kick_inactive(chat_id, num, receiver)
     return chat_info(receiver, kick_zero, {chat_id = chat_id})
 end]]
 
-local function iDev1(msg, matches)
+local function master(msg, matches)
   local data = load_data(_config.moderation.data)
   local receiver = get_receiver(msg)
    local name_log = user_print_name(msg.from)
@@ -1760,7 +1761,7 @@ return {
   "%[(audio)%]",
   "^!!tgservice (.+)$",
   },
-  run = iDev1,
+  run = master,
   pre_process = pre_process
 }
 end
