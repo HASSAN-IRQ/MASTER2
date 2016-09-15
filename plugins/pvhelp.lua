@@ -1,5 +1,5 @@
 do
-local function iDev1(msg,matches)
+local function master(msg,matches)
 if is_momod(msg) and matches[1]== 'pv' and matches[2]== 'help' then
       local help_text = tostring(_config.help_text_super)
             send_large_msg("user#id"..msg.from.id, help_text)
@@ -13,5 +13,5 @@ end
 end
 return {
 patterns ={"^[!/#](pv) (help)$"},
-run = iDev1 }
+run = master }
 end
