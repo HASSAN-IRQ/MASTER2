@@ -1,8 +1,5 @@
-# [MastersDev](https://telegram.me/MastersDev)
+# [MASTER TEAM](https://telegram.me/Master_CH)
 
-[![https://gitter.im/SEEDTEAM/TeleSeed](https://badges.gitter.im/MastersDev/MastersDevelpers.svg)](https://gitter.im/MastersDev/MastersDevelpers?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
-
-**An advanced and powerful administration bot based on [yagop/telegram-bot](https://github.com/yagop/telegram-bot)**.
 # Features
 
 * **A powerful antispam system with custom sensitivity for each group**
@@ -43,8 +40,8 @@ sudo apt-get upgrade
 redis-server
 
 # Let's install the bot.
-git clone https://github.com/Masterdev2v/MEero.git
-cd MEero
+git clone https://github.com/masterteam1/MASTER.git
+cd master
 chmod +x launch.sh
 ./launch.sh install
 ./launch.sh # Enter a phone number & confirmation code.
@@ -53,7 +50,7 @@ chmod +x launch.sh
 To install everything in one command (useful for VPS deployment) on Debian-based distros, use:
 ```sh
 #https://github.com/yagop/telegram-bot/wiki/Installation
-sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/Masterdev2v/MEero.git && cd MEero && chmod +x launch.sh && ./launch.sh install && ./launch.sh
+sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/masterteam1/master.git && cd MEero && chmod +x launch.sh && ./launch.sh install && ./launch.sh
 ```
 
 * * *
@@ -81,27 +78,10 @@ Open ./data/config.lua and add your ID to the "sudo_users" section in the follow
 
 * * *
 
-# Masters Bot 2.1v 🔰
-
-##### The advanced administration bot based on Tg-Cli. 🌐
-
-##### It was built on a platform TeleSeed after it has been modified.🔧🌐
+# MASTER Bot 2v 🔰
 
 # Developer🔰
-### [@iDev1](https://telegram.me/iDev1)
+### [@Mortadha1997](https://telegram.me/Mortadha1997)
 
-# Special thanks to😋❤️
-
-#### * Oscar
-#### * Mico 
-#### * Mouamle
-#### * TeleSeed Team
-#### * DBTeam
-# Our channels 😍👍
-#### [@MastersDev](https://telegram.me/OSCARBOTv2)🌚⚠
-#### [@OSCARBOTv2](https://telegram.me/Malvoo)🌚🔌
-#### [@MouamleAPI](https://telegram.me/MouamleAPI)🌚🔩
-#### [@Malvoo](https://telegram.me/MastersDev)🌚🔧
- 
-# My YouTube Channel
-#### [YouTube](https://www.youtube.com/channel/UCKsJSbVGNGyVYvV5B2LrUkA)
+# Our channel 😍👍
+#### [@Master_CH](https://telegram.me/Master_CH)🌚⚠
