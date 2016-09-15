@@ -40,8 +40,9 @@ sudo apt-get upgrade
 redis-server
 
 # Let's install the bot.
+# OPEN new Terminal :
 git clone https://github.com/masterteam1/MASTER.git
-cd master
+cd MASTER
 chmod +x launch.sh
 ./launch.sh install
 ./launch.sh # Enter a phone number & confirmation code.
