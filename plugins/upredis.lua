@@ -1,5 +1,5 @@
 do
-function iDev1(msg, matches)
+function master(msg, matches)
   if matches[1] == "run" and is_sudo(msg) then
     return os.execute("./launch.sh"):read('*all')
   elseif matches[1] == "update" and is_sudo(msg) then
@@ -14,6 +14,6 @@ return {
     "^[/!](update)",
     "^[/!](redis)"
   },
-  run = iDev1
+  run = master
 }
 end
