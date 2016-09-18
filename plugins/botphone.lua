@@ -1,7 +1,7 @@
--- made by { @MUSTAFADEV } 
+--MASTER TEAM
  do 
 
-local function mustafadev(msg, matches) 
+local function master(msg, matches) 
    if matches[1] == "phone" then 
       return "اهلا عزيزي😽"..msg.from.print_name.."\nرقم البوت هوه👇🏻📱\n"..(msg.to.phone or "لايوجد") 
 
@@ -13,18 +13,7 @@ return {
   patterns = { 
        "^[#!/](phone)$", 
   }, 
-  run = mustafadev, 
+  run = master, 
 } 
 
 end 
---[[ 
-
-🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐 
-🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐 
-Team: oscar 
-Dev: MUSTAFADEV 
-
-🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐 
-🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐 
-
---]] 
