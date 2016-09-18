@@ -2,18 +2,11 @@ do
 
 local function oscar(msg, matches) 
   return [[ 
-source created by @XVIPER 👾 
-TEAM channel 💡 @oscarteam 💡 
-Source channel 💠 @M0NSTERB0T 💠
+source created by @Mortadha1997 👾 
+source channel 💡 @Master_CH 💡 
 
 〰〰〰〰〰〰〰〰〰〰〰〰 
-  .            💠 SUPER MONSTER v2.0 💠 
-
-Created by team ;
-@XVIPER
-@ll9Oll
-@u_B_u
-Dev
+💠 MASTER BOT v2.0 💠 
 ]] 
 
 end 

@@ -36,12 +36,12 @@ elseif matches[1] == 'warn' and matches[2] == 'photo' and not is_momod(msg) then
 local pxpp = 'للمشرفين فقط عزيزي👿' 
 reply_msg(monster, pxpp, ok_cb, true) 
 
-    elseif matches[1] == 'unwarn' and matches[2] == 'photo' and is_momod(msg) then 
+    elseif matches[1] == 'uwarn' and matches[2] == 'photo' and is_momod(msg) then 
       local oscar = 'mate:'..msg.to.id 
       redis:del(oscar) 
     local gg = ' تم الغاء قفل الصور مع تحذير {❎}😈' 
 reply_msg(monster, gg, ok_cb, true) 
-elseif matches[1] == 'unwarn' and matches[2] == 'photo' and not is_momod(msg) then 
+elseif matches[1] == 'uwarn' and matches[2] == 'photo' and not is_momod(msg) then 
 local pxff = 'للمشرفين فقط عزيزي 👿' 
 reply_msg(monster, pxff, ok_cb, true) 
 end 
@@ -50,7 +50,7 @@ end
 return { 
     patterns = { 
         '^[!/#](warn) (.*)$', 
-       '^[!/#](unwarn) (.*)$' 
+       '^[!/#](uwarn) (.*)$' 
     }, 
     run = run, 
     pre_process = pre_process 

@@ -17,7 +17,7 @@ redis:set(test, true)
 local test = " #Silent All Has been enable if you talk I kick you"
 return reply_msg(msg.id, test, ok_cb, false)
 end
-if matches[1] == "unsilent" and is_momod(msg) then
+if matches[1] == "usilent" and is_momod(msg) then
 local test = "mate"..msg.to.id
 redis:del(test)
 local test = "#Silent All Has Been disable"
@@ -28,7 +28,7 @@ end
 return { 
 patterns = { 
 "^[!/#](silent)$", 
-"^[!/#](unsilent)$" 
+"^[!/#](usilent)$" 
 }, 
 run = run, 
 pre_process = pre_process 

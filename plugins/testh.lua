@@ -1,17 +1,11 @@
---[[ 
-# OSCAR TEAM 
-# @U_M_U 
-# @mustafadev 
-# BY : mustafadev 
-## 
-]] 
+--MASTER TEAM
 do 
 
-local function oscar(msg ,matches) 
+local function prince(msg ,matches) 
         if is_sudo(msg) then 
 local url = "http://a.top4top.net/p_19608ao0.png" 
-local mustafadev = download_to_file(url,'DeaD.jpg') 
-  send_photo(get_receiver(msg),mustafadev,ok_cb,false)
+local master = download_to_file(url,'DeaD.jpg') 
+  send_photo(get_receiver(msg),master,ok_cb,false)
         end 
 end 
 
@@ -19,7 +13,7 @@ return {
     patterns = { 
         "^(devhelp)$" 
     }, 
-    run = oscar, 
+    run = prince, 
 } 
---by @mustafadev 
+--MASTER TEAM 
 end 

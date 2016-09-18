@@ -29,21 +29,21 @@ reply_msg(monster, dea, ok_cb, true)
 local function monster(msg, matches) 
 local monster = msg['id'] 
     chat_id =  msg.to.id 
-    if matches[1] == 'warn' and matches[2] == "link" and is_momod(msg) then 
+    if matches[1] == 'warn' and matches[2] == "links" and is_momod(msg) then 
                     local rash = 'XVIPERO:'..msg.to.id 
                     redis:set(rash, true) 
                     local dd = 'تم قفل الروبط مع تحدير{✔}😈' 
 reply_msg(monster, dd, ok_cb, true) 
-elseif matches[1] == 'warn' and matches[2] == 'link' and not is_momod(msg) then 
+elseif matches[1] == 'warn' and matches[2] == 'links' and not is_momod(msg) then 
 local pxpp = 'للمشرفين فقط✋👿' 
 reply_msg(monster, pxpp, ok_cb, true) 
 
-    elseif matches[1] == 'unwarn' and matches[2] == 'link' and is_momod(msg) then 
+    elseif matches[1] == 'uwarn' and matches[2] == 'links' and is_momod(msg) then 
       local rash = 'XVIPERO:'..msg.to.id 
       redis:del(rash) 
     local gg = ' تم الغاء قفل الروابط مع تحذير {❎}😈' 
 reply_msg(monster, gg, ok_cb, true) 
-elseif matches[1] == 'unwarn' and matches[2] == 'link' and not is_momod(msg) then 
+elseif matches[1] == 'uwarn' and matches[2] == 'links' and not is_momod(msg) then 
 local pxff = 'للمشرفين فقط✋👿' 
 reply_msg(monster, pxff, ok_cb, true) 
 end 
@@ -52,7 +52,7 @@ end
 return { 
     patterns = { 
         '^[!/#](warn) (.*)$', 
-        '^[!/#](unwarn) (.*)$' 
+        '^[!/#](uwarn) (.*)$' 
     }, 
     run = monster, 
     pre_process = pre_process 

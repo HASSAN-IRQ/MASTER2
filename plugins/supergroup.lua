@@ -265,7 +265,7 @@ local function lock_group_leave(msg, data, target)
   end 
   local group_leave_lock = data[tostring(target)]['settings']['leave'] 
   if group_leave_lock == 'yes' then 
-    return 'المغادرة بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id �� '..msg.from.id..'\n' 
+    return 'المغادرة بالفعل مقفوله عزيزي {✔}👿\n'..'��by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id �� '..msg.from.id..'\n' 
   else 
     data[tostring(target)]['settings']['leave'] = 'yes' 
     save_data(_config.moderation.data, data) 
@@ -919,7 +919,7 @@ function show_supergroup_settingsmod(msg, target)
    end 
   local gp_type = data[tostring(msg.to.id)]['group_type'] 
   local settings = data[tostring(target)]['settings'] 
-  local text = "😈-----🔩-----😈\nℹ️SuperGroups Settings: 💢️\n🔱Group name : "..msg.to.title.."\n😈-----🔩-----😈\n 👁‍🗨 lock links : "..settings.lock_link.."\n 👁‍🗨 Lock contacts: "..settings.lock_contacts.."\n 👁‍🗨 Lock flood: "..settings.flood.."\n 👁‍🗨Flood sensitivity : "..NUM_MSG_MAX.."\n 👁‍🗨 Lock spam: "..settings.lock_spam.."\n 👁‍🗨 Lock Arabic: "..settings.lock_arabic.."\n 👁‍🗨 Lock english: "..settings.english.."\n 👁‍🗨 Lock Member: "..settings.lock_member.."\n 👁‍🗨 Lock RTL: "..settings.lock_rtl.."\n 👁‍🗨 Lock Tgservice: "..settings.lock_tgservice.."\n 👁‍🗨 Lock sticker: "..settings.lock_sticker.."\n 👁‍🗨 Lock bots: "..bots_protection.."\n 👁‍🗨 Lock fwd(forward): "..settings.fwd.."\n 👁‍🗨 lock reply: "..settings.reply.."\n 👁‍🗨 Lock join : "..settings.join.."\n 👁‍🗨 Lock leave: "..settings.leave.."\n🔇Lock all: "..settings.all.."\n😈-----🔩-----😈\n❕️About Group: 🔽️\n😈-----🔩-----😈\n⚠️Group type: "..gp_type.."\n✳️Public: "..settings.public.."\n⛔️Strict settings: "..settings.strict.."\n😈-----🔩-----😈\n💈MONSTERBOT™💈" 
+  local text = "😈-----🔩-----😈\nℹ️SuperGroups Settings: 💢️\n🔱Group name : "..msg.to.title.."\n😈-----🔩-----😈\n 👁‍🗨 lock links : "..settings.lock_link.."\n 👁‍🗨 Lock contacts: "..settings.lock_contacts.."\n 👁‍🗨 Lock flood: "..settings.flood.."\n 👁‍🗨Flood sensitivity : "..NUM_MSG_MAX.."\n 👁‍🗨 Lock spam: "..settings.lock_spam.."\n 👁‍🗨 Lock Arabic: "..settings.lock_arabic.."\n 👁‍🗨 Lock english: "..settings.english.."\n 👁‍🗨 Lock Member: "..settings.lock_member.."\n 👁‍🗨 Lock RTL: "..settings.lock_rtl.."\n 👁‍🗨 Lock Tgservice: "..settings.lock_tgservice.."\n 👁‍🗨 Lock sticker: "..settings.lock_sticker.."\n 👁‍🗨 Lock bots: "..bots_protection.."\n 👁‍🗨 Lock fwd(forward): "..settings.fwd.."\n 👁‍🗨 lock reply: "..settings.reply.."\n 👁‍🗨 Lock join : "..settings.join.."\n 👁‍🗨 Lock leave: "..settings.leave.."\n🔇Lock all: "..settings.all.."\n😈-----🔩-----😈\n❕️About Group: 🔽️\n😈-----🔩-----😈\n⚠️Group type: "..gp_type.."\n✳️Public: "..settings.public.."\n⛔️Strict settings: "..settings.strict.."\n😈-----🔩-----😈\n💈MASTER BOT™💈" 
   return text 
 end 
 
@@ -1067,7 +1067,7 @@ function get_message_callback(extra, success, result)
       end 
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] set: ["..user_id.."] as admin by reply") 
       send_large_msg(channel_id, text) 
-   elseif get_cmd == "demoteadmin" then 
+   elseif get_cmd == "demadmin" then 
       local user_id = result.from.peer_id 
       local channel_id = "channel#id"..result.to.peer_id 
       if is_admin2(result.from.peer_id) then 
@@ -1101,7 +1101,7 @@ function get_message_callback(extra, success, result)
          end 
          send_large_msg(channel_id, text) 
       end 
-   elseif get_cmd == "promote" then 
+   elseif get_cmd == "prom" then 
       local receiver = result.to.peer_id 
       local full_name = (result.from.first_name or '')..' '..(result.from.last_name or '') 
       local member_name = full_name:gsub("‮", "") 
@@ -1115,7 +1115,7 @@ function get_message_callback(extra, success, result)
       promote2("channel#id"..result.to.peer_id, member_username, member_id) 
        --channel_set_mod(channel_id, user, ok_cb, false) 
       end 
-   elseif get_cmd == "demote" then 
+   elseif get_cmd == "dem" then 
       local full_name = (result.from.first_name or '')..' '..(result.from.last_name or '') 
       local member_name = full_name:gsub("‮", "") 
       local member_username = member_name:gsub("_", " ") 
@@ -1173,7 +1173,7 @@ local function cb_user_info(extra, success, result)
          text = "[ "..result.peer_id.." ] has been set as an admin" 
       end 
          send_large_msg(receiver, text)]] 
-   if get_cmd == "demoteadmin" then 
+   if get_cmd == "demadmin" then 
       if is_admin2(result.peer_id) then 
          return send_large_msg(receiver, "You can't demote global admins!") 
       end 
@@ -1186,14 +1186,14 @@ local function cb_user_info(extra, success, result)
          text = "[ "..result.peer_id.." ] has been demoted from admin" 
          send_large_msg(receiver, text) 
       end 
-   elseif get_cmd == "promote" then 
+   elseif get_cmd == "prom" then 
       if result.username then 
          member_username = "@"..result.username 
       else 
          member_username = string.gsub(result.print_name, '_', ' ') 
       end 
       promote2(receiver, member_username, user_id) 
-   elseif get_cmd == "demote" then 
+   elseif get_cmd == "dem" then 
       if result.username then 
          member_username = "@"..result.username 
       else 
@@ -1271,18 +1271,18 @@ local function callbackres(extra, success, result)
       end 
       send_large_msg(receiver, text) 
   end]] 
-   elseif get_cmd == "promote" then 
+   elseif get_cmd == "prom" then 
       local receiver = extra.channel 
       local user_id = result.peer_id 
       --local user = "user#id"..result.peer_id 
       promote2(receiver, member_username, user_id) 
       --channel_set_mod(receiver, user, ok_cb, false) 
-   elseif get_cmd == "demote" then 
+   elseif get_cmd == "dem" then 
       local receiver = extra.channel 
       local user_id = result.peer_id 
       local user = "user#id"..result.peer_id 
       demote2(receiver, member_username, user_id) 
-   elseif get_cmd == "demoteadmin" then 
+   elseif get_cmd == "demadmin" then 
       local user_id = "user#id"..result.peer_id 
       local channel_id = extra.channel 
       if is_admin2(result.peer_id) then 
@@ -1476,7 +1476,7 @@ local function DevMonster(msg, matches)
    local print_name = user_print_name(msg.from):gsub("‮", "") 
    local name_log = print_name:gsub("_", " ") 
    local data = load_data(_config.moderation.data) 
-         if matches[1] == 'active' and not matches[2] then 
+         if matches[1] == 'add' and not matches[2] then 
          if not is_admin1(msg) and not is_support(support_id) then 
             return 
          end 
@@ -1490,7 +1490,7 @@ local function DevMonster(msg, matches)
          set_mutes(msg.to.id) 
          channel_set_admin(receiver, 'user#id'..msg.from.id, ok_cb, false) 
       end 
-      if matches[1] == 'active' and is_admin1(msg) and not matches[2] then 
+      if matches[1] == 'add' and is_admin1(msg) and not matches[2] then 
          if not is_super_group(msg) then 
            local iDev1 = "This Group not actived Ok ok now I active Group💡😈" 
            return send_large_msg(receiver, iDev1) 
@@ -1499,7 +1499,7 @@ local function DevMonster(msg, matches)
          superrem(msg) 
          rem_mutes(msg.to.id) 
       end 
-      if matches[1] == 'inactive' and is_admin1(msg) and not matches[2] then 
+      if matches[1] == 'rem' and is_admin1(msg) and not matches[2] then 
          if not is_super_group(msg) then 
             return reply_msg(msg.id, 'SuperGroup is aleardy inactive✋👿.', ok_cb, false) 
          end 
@@ -1555,7 +1555,7 @@ local function DevMonster(msg, matches)
          channel_get_users(receiver, callback_who, {receiver = receiver}) 
       end 
 
-      if matches[1] == "kicked" and is_momod(msg) then 
+      if matches[1] == "kked" and is_momod(msg) then 
          savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested Kicked users list") 
          channel_get_kicked(receiver, callback_kicked, {receiver = receiver}) 
       end 
@@ -1571,14 +1571,14 @@ local function DevMonster(msg, matches)
          end 
       end 
 
-      if matches[1] == 'bb' or matches[1] == 'kick' and is_momod(msg) then 
+      if matches[1] == 'ban' or matches[1] == 'kk' and is_momod(msg) then 
          if type(msg.reply_id) ~= "nil" then 
             local cbreply_extra = { 
                get_cmd = 'channel_block', 
                msg = msg 
             } 
             get_message(msg.reply_id, get_message_callback, cbreply_extra) 
-         elseif matches[1] == 'bb' or matches[1] == 'kick' and string.match(matches[2], '^%d+$') then 
+         elseif matches[1] == 'ban' or matches[1] == 'kk' and string.match(matches[2], '^%d+$') then 
             --[[local user_id = matches[2] 
             local channel_id = msg.to.id 
             if is_momod2(user_id, channel_id) and not is_admin2(user_id) then 
@@ -1632,12 +1632,12 @@ local function DevMonster(msg, matches)
             resolve_username(username,  callbackres, cbres_extra) 
          else 
             savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID") 
-            local text = " Welcome in BOT MONSTER V 2.0 ".."\n".."🆔 lD : "..msg.from.id.."\n".." 💠 Name : "..msg.from.first_name.."\n".." 💠 #Username  : @"..msg.from.username.."\n".." 💠 Grop Name "..msg.to.title.."\n".."🕛Date : "..os.date('%A, %B, %d, %Y\n',timestamp) 
+            local text = " Welcome in BOT MASTER V 2.0 ".."\n".."🆔 lD : "..msg.from.id.."\n".." 💠 Name : "..msg.from.first_name.."\n".." 💠 #Username  : @"..msg.from.username.."\n".." 💠 Grop Name "..msg.to.title.."\n".."🕛Date : "..os.date('%A, %B, %d, %Y\n',timestamp) 
         return reply_msg(msg.id, text, ok_cb, false) 
          end 
       end 
 
-      if matches[1] == 'kickme' then 
+      if matches[1] == 'kkme' then 
          if msg.to.type == 'channel' then 
             savelog(msg.to.id, name_log.." ["..msg.from.id.."] left via kickme") 
             channel_kick("channel#id"..msg.to.id, "user#id"..msg.from.id, ok_cb, false) 
@@ -1751,25 +1751,25 @@ local function DevMonster(msg, matches)
          end 
       end 
 
-      if matches[1] == 'demoteadmin' then 
+      if matches[1] == 'demadmin' then 
          if not is_support(msg.from.id) and not is_owner(msg) then 
             return 
          end 
          if type(msg.reply_id) ~= "nil" then 
             local cbreply_extra = { 
-               get_cmd = 'demoteadmin', 
+               get_cmd = 'demadmin', 
                msg = msg 
             } 
             demoteadmin = get_message(msg.reply_id, get_message_callback, cbreply_extra) 
-         elseif matches[1] == 'demoteadmin' and string.match(matches[2], '^%d+$') then 
+         elseif matches[1] == 'demadmin' and string.match(matches[2], '^%d+$') then 
             local receiver = get_receiver(msg) 
             local user_id = "user#id"..matches[2] 
-            local get_cmd = 'demoteadmin' 
+            local get_cmd = 'demadmin' 
             user_info(user_id, cb_user_info, {receiver = receiver, get_cmd = get_cmd}) 
-         elseif matches[1] == 'demoteadmin' and not string.match(matches[2], '^%d+$') then 
+         elseif matches[1] == 'demadmin' and not string.match(matches[2], '^%d+$') then 
             local cbres_extra = { 
                channel = get_receiver(msg), 
-               get_cmd = 'demoteadmin' 
+               get_cmd = 'demadmin' 
             } 
             local username = matches[2] 
             local username = string.gsub(matches[2], '@', '') 
@@ -1814,7 +1814,7 @@ local function DevMonster(msg, matches)
          end 
       end 
 
-      if matches[1] == 'promote' then 
+      if matches[1] == 'prom' then 
         if not is_momod(msg) then 
             return 
          end 
@@ -1823,20 +1823,20 @@ local function DevMonster(msg, matches)
          end 
          if type(msg.reply_id) ~= "nil" then 
             local cbreply_extra = { 
-               get_cmd = 'promote', 
+               get_cmd = 'prom', 
                msg = msg 
             } 
             promote = get_message(msg.reply_id, get_message_callback, cbreply_extra) 
-         elseif matches[1] == 'promote' and string.match(matches[2], '^%d+$') then 
+         elseif matches[1] == 'prom' and string.match(matches[2], '^%d+$') then 
             local receiver = get_receiver(msg) 
             local user_id = "user#id"..matches[2] 
-            local get_cmd = 'promote' 
+            local get_cmd = 'prom' 
             savelog(msg.to.id, name_log.." ["..msg.from.id.."] promoted user#id"..matches[2]) 
             user_info(user_id, cb_user_info, {receiver = receiver, get_cmd = get_cmd}) 
-         elseif matches[1] == 'promote' and not string.match(matches[2], '^%d+$') then
+         elseif matches[1] == 'prom' and not string.match(matches[2], '^%d+$') then
             local cbres_extra = { 
                channel = get_receiver(msg), 
-               get_cmd = 'promote', 
+               get_cmd = 'prom', 
             } 
             local username = matches[2] 
             local username = string.gsub(matches[2], '@', '') 
@@ -1858,7 +1858,7 @@ local function DevMonster(msg, matches)
          return "ok" 
       end 
 
-      if matches[1] == 'demote' then 
+      if matches[1] == 'dem' then 
          if not is_momod(msg) then 
             return 
          end 
@@ -1867,11 +1867,11 @@ local function DevMonster(msg, matches)
          end 
          if type(msg.reply_id) ~= "nil" then 
             local cbreply_extra = { 
-               get_cmd = 'demote', 
+               get_cmd = 'dem', 
                msg = msg 
             } 
             demote = get_message(msg.reply_id, get_message_callback, cbreply_extra) 
-         elseif matches[1] == 'demote' and string.match(matches[2], '^%d+$') then 
+         elseif matches[1] == 'dem' and string.match(matches[2], '^%d+$') then 
             local receiver = get_receiver(msg) 
             local user_id = "user#id"..matches[2] 
             local get_cmd = 'demote' 
@@ -1880,7 +1880,7 @@ local function DevMonster(msg, matches)
          elseif not string.match(matches[2], '^%d+$') then 
             local cbres_extra = { 
                channel = get_receiver(msg), 
-               get_cmd = 'demote' 
+               get_cmd = 'dem' 
             } 
             local username = matches[2] 
             local username = string.gsub(matches[2], '@', '') 
@@ -2117,7 +2117,7 @@ local function DevMonster(msg, matches)
          end 
       end 
 
-      if matches[1] == 'unlock' and is_momod(msg) then 
+      if matches[1] == 'ulock' and is_momod(msg) then 
          local target = msg.to.id 
               if matches[2] == 'all' then 
          local dsafemode ={ 
@@ -2323,7 +2323,7 @@ local function DevMonster(msg, matches)
             end 
          end 
       end 
-      if matches[1] == 'unmute' and is_momod(msg) then 
+      if matches[1] == 'umute' and is_momod(msg) then 
          local chat_id = msg.to.id 
          if matches[2] == 'audio' then 
          local msg_type = 'Audio' 
@@ -2397,7 +2397,7 @@ local function DevMonster(msg, matches)
          end 
       end 
 
-      if matches[1] == "silent" or matches[1] == "unsilent" and is_momod(msg) then 
+      if matches[1] == "silent" or matches[1] == "usilent" and is_momod(msg) then 
          local chat_id = msg.to.id 
          local hash = "mute_user"..chat_id 
          local user_id = "" 
@@ -2405,7 +2405,7 @@ local function DevMonster(msg, matches)
             local receiver = get_receiver(msg) 
             local get_cmd = "mute_user" 
             muteuser = get_message(msg.reply_id, get_message_callback, {receiver = receiver, get_cmd = get_cmd, msg = msg}) 
-         elseif matches[1] == "silent" or matches[1] == "unsilent" and string.match(matches[2], '^%d+$') then 
+         elseif matches[1] == "silent" or matches[1] == "usilent" and string.match(matches[2], '^%d+$') then 
             local user_id = matches[2] 
             if is_muted_user(chat_id, user_id) then 
                unmute_user(chat_id, user_id) 
@@ -2416,7 +2416,7 @@ local function DevMonster(msg, matches)
                savelog(msg.to.id, name_log.." ["..msg.from.id.."] added ["..user_id.."] to the muted users list") 
                return "["..user_id.."] added to the muted user list" 
             end 
-         elseif matches[1] == "silent" or matches[1] == "unsilent" and not string.match(matches[2], '^%d+$') then 
+         elseif matches[1] == "silent" or matches[1] == "usilent" and not string.match(matches[2], '^%d+$') then 
             local receiver = get_receiver(msg) 
             local get_cmd = "mute_user" 
             local username = matches[2] 
@@ -2519,8 +2519,8 @@ end
 
 return { 
   patterns = { 
-   "^[#!/]([Aa]ctive)$", 
-   "^[#!/]([Ii]nactive)$", 
+   "^[#!/]([Aa]dd)$", 
+   "^[#!/]([Rr]em)$", 
    "^[#!/]([Mm]ove) (.*)$", 
    "^[#!/]([Gg]pinfo)$", 
    "^[#!/]([Aa]dmins)$", 
@@ -2528,29 +2528,29 @@ return {
    "^[#!/]([Mm]odlist)$", 
    "^[#!/]([Bb]ots)$", 
    "^[#!/]([Ww]ho)$", 
-   "^[#!/]([Kk]icked)$", 
-        "^[#!/]([Bb]b) (.*)", 
-   "^[#!/]([Bb]b)", 
-       "^[#!/]([Kk]ick) (.*)", 
-   "^[#!/]([Kk]ick)", 
+   "^[#!/]([Kk]ed)$", 
+        "^[#!/]([Bb]an) (.*)", 
+   "^[#!/]([Bb]an)", 
+       "^[#!/]([Kk]k) (.*)", 
+   "^[#!/]([Kk]k)", 
    "^[#!/]([Tt]osuper)$", 
    "^[#!/]([Ii][Dd])$", 
    "^[#!/]([Ii][Dd]) (.*)$", 
-   "^[#!/]([Kk]ickme)$", 
+   "^[#!/]([Kk]kme)$", 
    "^[#!/]([Nn]ewlink)$", 
    "^[#!/]([Ss]etlink)$", 
    "^[#!/]([Ll]ink)$", 
    "^[#!/]([Rr]es) (.*)$", 
    "^[#!/]([Ss]etadmin) (.*)$", 
    "^[#!/]([Ss]etadmin)", 
-   "^[#!/]([Dd]emoteadmin) (.*)$", 
-   "^[#!/]([Dd]emoteadmin)", 
+   "^[#!/]([Dd]emadmin) (.*)$", 
+   "^[#!/]([Dd]emadmin)", 
    "^[#!/]([Ss]etowner) (.*)$", 
    "^[#!/]([Ss]etowner)$", 
-   "^[#!/]([Pp]romote) (.*)$", 
-   "^[#!/]([Pp]romote)", 
-   "^[#!/]([Dd]emote) (.*)$", 
-   "^[#!/]([Dd]emote)", 
+   "^[#!/]([Pp]rom) (.*)$", 
+   "^[#!/]([Pp]rom)", 
+   "^[#!/]([Dd]em) (.*)$", 
+   "^[#!/]([Dd]em)", 
    "^[#!/]([Ss]etname) (.*)$", 
    "^[#!/]([Ss]etabout) (.*)$", 
    "^[#!/]([Ss]etrules) (.*)$", 
@@ -2558,13 +2558,13 @@ return {
    "^[#!/]([Ss]etusername) (.*)$", 
    "^[#!/]([Dd]el)$", 
    "^[#!/](lock) (.*)$", 
-   "^[#!/](unlock) (.*)$", 
+   "^[#!/](ulock) (.*)$", 
    "^[#!/](mute) ([^%s]+)$", 
-   "^[#!/](unmute) ([^%s]+)$", 
+   "^[#!/](umute) ([^%s]+)$", 
    "^[#!/]([Ss]ilent)$", 
    "^[#!/]([Ss]ilent) (.*)$", 
-   "^[#!/]([Uu]nsilent)$", 
-   "^[#!/]([Uu]nsilent) (.*)$", 
+   "^[#!/]([Uu]silent)$", 
+   "^[#!/]([Uu]silent) (.*)$", 
    "^[#!/]([Pp]ublic) (.*)$", 
    "^[#!/](settings)$", 
    "^[#!/]([Rr]ules)$", 

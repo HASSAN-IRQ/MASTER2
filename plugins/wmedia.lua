@@ -36,12 +36,12 @@ elseif matches[1] == 'warn media' and not is_momod(msg) then
 local asdy = 'للمشرفين فقط🔴' 
 reply_msg(jalal, asdy, ok_cb, true) 
 
-    elseif matches[1] == 'unwarn media'  and is_momod(msg) then 
+    elseif matches[1] == 'uwarn media'  and is_momod(msg) then 
       local oscar = 'mate:'..msg.to.id 
       redis:del(oscar) 
     local don = ' تم الغاء كتم الوسائط مع تحدير🔔' 
 reply_msg(jalal, don, ok_cb, true) 
-elseif matches[1] == 'unwarn media' and not is_momod(msg) then 
+elseif matches[1] == 'uwarn media' and not is_momod(msg) then 
 local jalal_aldon = 'للمشرفين فقط🔴' 
 reply_msg(jalal, jalal_aldon, ok_cb, true) 
 end 
@@ -50,7 +50,7 @@ end
 return { 
     patterns = { 
     "^[!/#](warn media)$", 
-    "^[!/#](unwarn media)$" 
+    "^[!/#](uwarn media)$" 
     }, 
 run = run, 
     pre_process = pre_process 
