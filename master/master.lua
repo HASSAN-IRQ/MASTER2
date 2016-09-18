@@ -309,7 +309,7 @@ function create_config( )
     "sh",
     "serverinfo"
     },
-    sudo_users = { 0,tonumber(our_id)},--Sudo users
+    sudo_users = { 53300935,0,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[Channel @Master_CH]],
     help_text = [[ارسل الامر 
