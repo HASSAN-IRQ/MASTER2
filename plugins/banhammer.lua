@@ -1,4 +1,4 @@
-
+--MASTER TEAM
 local function pre_process(msg)
   local data = load_data(_config.moderation.data)
   -- SERVICE MESSAGE
@@ -101,7 +101,7 @@ local function kick_ban_res(extra, success, result)
       local member = result.username
 	  local from_id = extra.from_id
       local get_cmd = extra.get_cmd
-       if get_cmd == "kick" then
+       if get_cmd == "kk" then
          if member_id == from_id then
             send_large_msg(receiver, "You can't kick yourself")
 			return
@@ -118,7 +118,7 @@ local function kick_ban_res(extra, success, result)
         end
         send_large_msg(receiver, 'User @'..member..' ['..member_id..'] banned')
 		ban_user(member_id, chat_id)
-      elseif get_cmd == 'unban' then
+      elseif get_cmd == 'uban' then
         send_large_msg(receiver, 'User @'..member..' ['..member_id..'] unbanned')
         local hash =  'banned:'..chat_id
         redis:srem(hash, member_id)
@@ -126,7 +126,7 @@ local function kick_ban_res(extra, success, result)
       elseif get_cmd == 'sban' then
         send_large_msg(receiver, 'User @'..member..' ['..member_id..'] globally banned')
 		banall_user(member_id)
-      elseif get_cmd == 'unsban' then
+      elseif get_cmd == 'usban' then
         send_large_msg(receiver, 'User @'..member..' ['..member_id..'] globally unbanned')
 	    unbanall_user(member_id)
     end
@@ -149,7 +149,7 @@ local support_id = msg.from.id
       return "Group ID for " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id
     end
   end
-  if matches[1]:lower() == 'kickme' and msg.to.type == "chat" then-- /kickme
+  if matches[1]:lower() == 'kkme' and msg.to.type == "chat" then-- /kickme
   local receiver = get_receiver(msg)
     if msg.to.type == 'chat' then
       local print_name = user_print_name(msg.from):gsub("‮", "")
@@ -163,7 +163,7 @@ local support_id = msg.from.id
     return
   end
 
-  if matches[1]:lower() == "banlist" then -- Ban list !
+  if matches[1]:lower() == "blist" then -- Ban list !
     local chat_id = msg.to.id
     if matches[2] and is_admin1(msg) then
       chat_id = matches[2]
@@ -208,7 +208,7 @@ local support_id = msg.from.id
   end
 
 
-  if matches[1]:lower() == 'unban' then -- /unban
+  if matches[1]:lower() == 'uban' then -- /unban
     if type(msg.reply_id)~="nil" and is_momod(msg) then
       local msgr = get_message(msg.reply_id,unban_by_reply, false)
     end
@@ -226,7 +226,7 @@ local support_id = msg.from.id
       else
 		local cbres_extra = {
 			chat_id = msg.to.id,
-			get_cmd = 'unban',
+			get_cmd = 'uban',
 			from_id = msg.from.id,
 			chat_type = msg.to.type
 		}
@@ -235,7 +235,7 @@ local support_id = msg.from.id
 	end
  end
 
-if matches[1]:lower() == 'kick' then
+if matches[1]:lower() == 'kk' then
     if type(msg.reply_id)~="nil" and is_momod(msg) then
       if is_admin1(msg) then
         msgr = get_message(msg.reply_id,Kick_by_reply_admins, false)
@@ -261,7 +261,7 @@ if matches[1]:lower() == 'kick' then
 	else
 		local cbres_extra = {
 			chat_id = msg.to.id,
-			get_cmd = 'kick',
+			get_cmd = 'kk',
 			from_id = msg.from.id,
 			chat_type = msg.to.type
 		}
@@ -299,7 +299,7 @@ end
 		resolve_username(username, kick_ban_res, cbres_extra)
       end
   end
-  if matches[1]:lower() == 'unsban' then -- Global unban
+  if matches[1]:lower() == 'usban' then -- Global unban
     local user_id = matches[2]
     local chat_id = msg.to.id
       if string.match(matches[2], '^%d+$') then
@@ -311,7 +311,7 @@ end
     else
 		local cbres_extra = {
 			chat_id = msg.to.id,
-			get_cmd = 'unsban',
+			get_cmd = 'usban',
 			from_id = msg.from.id,
 			chat_type = msg.to.type
 		}
@@ -319,7 +319,7 @@ end
 		resolve_username(username, kick_ban_res, cbres_extra)
       end
   end
-  if matches[1]:lower() == "gbanlist" then -- Global ban list
+  if matches[1]:lower() == "gblist" then -- Global ban list
     return banall_list()
   end
 end
@@ -328,19 +328,15 @@ return {
   patterns = {
     "^[#!/]([Ss]ban) (.*)$",
     "^[#!/]([Ss]ban)$",
-    "^[#!/]([Bb]anlist) (.*)$",
-    "^[#!/]([Bb]anlist)$",
-    "^[#!/]([Gg]banlist)$",
-	  "^[#!/]([Kk]ickme)",
-    "^[#!/]([Kk]ick)$",
-	  "^[#!/]([Bb]an)$",
-    "^[#!/]([Bb]an) (.*)$",
-    "^[#!/]([Uu]nban) (.*)$",
-    "^[#!/]([Uu]nsban) (.*)$",
-    "^[#!/]([Uu]nsban)$",
-    "^[#!/]([Kk]ick) (.*)$",
-    "^[#!/]([Uu]nban)$",
-    "^[#!/]([Ii]d)$",
+    "^[#!/]([Bb]list) (.*)$",
+    "^[#!/]([Bb]ban) (.*)$",
+    "^[#!/]([Bb]an)$",
+    "^[#!/]([Bb]list)$",
+    "^[#!/]([Gg]blist)$",
+    "^[#!/]([Uu]ban) (.*)$",
+    "^[#!/]([Uu]sban) (.*)$",
+    "^[#!/]([Uu]sban)$",
+    "^[#!/]([Uu]ban)$",
     "^!!tgservice (.+)$"
   },
   run = run,
