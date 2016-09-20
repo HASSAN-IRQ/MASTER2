@@ -1,8 +1,15 @@
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+
 do 
 local function master(msg, matches) 
 if ( msg.text ) then
   if ( msg.to.type == "user" ) then
-     return "اهلاً في الرد الألي لبوت MASTER\n لتحدث مع مبرمج البوت ادخل المعرف @Mortadha1997\n وللدخول لمجموعه الدعم ادخل المعرف @"
+     return "اهلاً في الرد الألي لبوت MASTER\n لتحدث مع مبرمج البوت ادخل المعرف @Mortadha1997\nللدخول الى مجموعة الدعم:\nhttps://telegram.me/joinchat/Ay1Ox0ErjRMiPi3YbpJ6rw"
     end 
   end 
 end 
@@ -14,3 +21,4 @@ return {
 } 
 
 end 
+--MASTER TEAM -_-
