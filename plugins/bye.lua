@@ -1,3 +1,10 @@
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+
 local function run(msg, matches, callback, extra)
 
 local data = load_data(_config.moderation.data)
@@ -47,8 +54,9 @@ end
 end
 return {
   patterns = {
-  "^[!#/]setbye +(.*)$",
+  "^[!#/]sbye +(.*)$",
   "^[!#/](delbye)$"
   },
   run = run
 }
+--MASTER TEAM -_-
