@@ -1,11 +1,11 @@
 --MASTER TEAM
 do 
 
-local function run(msg,matches) 
+local function master(msg,matches) 
 
 local reply_id = msg['id'] 
 if is_momod(msg) and matches[1]== 'hban' then 
-  local alnaze = [[*↝Banhelp↜* 
+  local banhelp = [[*↝Banhelp↜* 
 🔹➖➖➖🔹➖➖➖🔹
 Banhelp for Group :
 ✇ban + لحضر العضو : معرف 
@@ -26,13 +26,13 @@ Silents :
 ✇silent + لكتم العضو : معرف 
 ✇silentlist : قائمه مكتومين 
 ✇clean silentlist : حذف قائمة مكتومين]]
-reply_msg(reply_id, alnaze, ok_cb, false) 
+reply_msg(reply_id, banhelp, ok_cb, false) 
 end 
 
 local reply_id = msg['id'] 
 if not is_momod(msg) then 
-local alnaz = "للمشرفين فقط 🖕🏿😎" 
-reply_msg(reply_id, alnaze, ok_cb, false) 
+local banhelp = "للمشرفين فقط 🖕🏿😎" 
+reply_msg(reply_id, banhelp, ok_cb, false) 
 end 
 
 end 
@@ -40,6 +40,7 @@ return {
 patterns ={ 
   "^[!#/](hban)$", 
 }, 
-run = run 
+run = master
 } 
 end 
+--  MASTER TEAM -_-
