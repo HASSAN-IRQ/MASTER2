@@ -1,5 +1,5 @@
 do
-local function oscar(msg, matches)
+local function master(msg, matches)
   local url = "http://tts.baidu.com/text2audio?lan=en&ie=UTF-8&text="..matches[1]
   local receiver = get_receiver(msg)
   local file = download_to_file(url,'text.mp3')
@@ -15,7 +15,8 @@ return {
   patterns = {
     "^[!#/]voice (.+)$"
   },
-  run = oscar,
+  run = master,
 }
 
 end
+--MASTER TEAM -_-
