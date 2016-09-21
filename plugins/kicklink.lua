@@ -52,7 +52,7 @@ return {
         '^[!/#](kick) (.*)$', 
         '^[!/#](ukick) (.*)$' 
     }, 
-    run = master, 
+    run = masterteam, 
     pre_process = pre_process 
 } 
 
