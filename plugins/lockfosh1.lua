@@ -1,22 +1,32 @@
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+
 do 
 
-local function oscarteam(msg, matches) 
-  if matches[1] == "/lock fosh" then 
+local function masterteam(msg, matches) 
+local master = msg['id'] 
+  if matches[1] == "/lk fosh" then 
      local on = 'on:'..msg.to.id
      redis:set(on, true)
-     return "تم تفعيل منع كلمات سيئة 🤐😈"
+     local text = "تم تفعيل منع كلمات سيئة 🤐😈"
+     reply_msg(master, text, ok_cb, true) 
   end
   
 
-  if matches[1] == "/unlock fosh" then
+  if matches[1] == "/ulk fosh" then
      local on = 'on:'..msg.to.id
      redis:del(on)
-     return "تم ايقاف منع كلمات سيئة 😄👍"
+     local text = "تم ايقاف منع كلمات سيئة 😄👍"
+     reply_msg(master, text, ok_cb, true) 
   end
 
 
   if matches[1] == "صنع" then
-     --return " cods simsim by @iq_plus and @dev_2 "
+     --return "  "
 
   end
 end 
@@ -25,8 +35,8 @@ return {
   patterns = { 
      "(.*)"
   }, 
-  run = oscarteam, 
+  run = masterteam, 
 } 
 
 end 
--- @dev_2
+--MASTER TEAM -_-
