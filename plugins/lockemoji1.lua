@@ -1,20 +1,30 @@
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+
 do 
 
-local function oscarteam(msg, matches) 
-  if matches[1] == "/lock emoji" then 
+local function masterteam(msg, matches) 
+local reply_id = msg['id'] 
+  if matches[1] == "/lk emoji" then 
      local emojx = 'emojx:'..msg.to.id 
      redis:set(emojx, true) 
-     return " تم تفعيل قفل الايموجي داخل المجموعة😜🤘🏿 " 
+     local master = " تم تفعيل قفل الايموجي داخل المجموعة😜🤘🏿 " 
+     reply_msg(reply_id, master, ok_cb, true) 
   end 
 
-  if matches[1] == "/unlock emoji" then 
+  if matches[1] == "/ulk emoji" then 
      local emojx = 'emojx:'..msg.to.id 
      redis:del(emojx) 
-     return " تم الغاء قفل الايموجي داخل المجموعة😜🤘🏿 " 
+     local master = " تم الغاء قفل الايموجي داخل المجموعة😜🤘🏿 " 
+     reply_msg(reply_id, master, ok_cb, true) 
   end 
 
   if matches[1] == "صنع" then 
-     --return " cods simsim by @iq_plus and @dev_2 " 
+     --return "" 
 
   end 
 end 
@@ -23,8 +33,8 @@ return {
   patterns = { 
      "(.*)" 
   }, 
-  run = oscarteam, 
+  run = masterteam, 
 } 
 
 end 
--- @dev_2
+--MASTER TEAM -_-
