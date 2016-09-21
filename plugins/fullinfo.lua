@@ -1,6 +1,13 @@
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+
 do 
 
-local function run(msg, matches) 
+local function master(msg, matches) 
 local hish = 'fullinfo:'..msg.from.id 
 local name = 'name:'..msg.from.id
 local age = 'age:'..msg.from.id
@@ -36,14 +43,14 @@ local note = "Your note added!"
 reply_msg(reply, note, ok_cb, true)
 end
 end
-if matches[1] == "fullinfo" then 
+if matches[1] == "finfo" then 
 local openk = '💠your nickname: '..redis:get(name)..'\n🚻Your sex: '..redis:get(sex)..'\n💠Your age: '..redis:get(age)..'\n📕Your note:'..redis:get(note)..'\n🆔Your ID : '..msg.from.id..'\n'
 reply_msg(reply, openk, ok_cb, true) 
 else 
 ----local c = "لا توجد معلومات" 
 reply_msg(reply, c, ok_cb, true)
 end
-if matches[1] == "delinfo" then 
+if matches[1] == "dinfo" then 
 redis:del(openk) 
 local d = "تم حذف معلوماتك" 
 reply_msg(reply, d, ok_cb, true) 
@@ -56,9 +63,10 @@ return {
  "^[!/#](setage)(.*)$",
  "^[!/#](setnote)(.*)$",
  "^[!/#](setsex)(.*)$",
- "^[!/#](fullinfo)",
- "^[!/#](delinfo)"
+ "^[!/#](finfo)",
+ "^[!/#](dinfo)"
  }, 
- run = run, 
+ run = master, 
  } 
 end
+--MASTER TEAM -_-
