@@ -1,17 +1,14 @@
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
 
---[[ 
-▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀ 
-▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄ لتحذف حقوق بذمتك🚶🏻 
-      #CODS CREATED By ~ @JALAL_ALDON 
-      please join to Channel Oscar Team @OSCARBOTv2 
-▀▄ ▄▀                                      ▀▄ ▄▀ 
-▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀ 
---]] 
 do 
 
 local function pre_process(msg) 
-local jalal = msg['id']
+local reply = msg['id']
 local user = msg.from.id 
 local chat = msg.to.id
    local osccar = 'mmate:'..msg.to.id 
@@ -23,38 +20,37 @@ local chat = msg.to.id
         return msg 
     end 
 
-local function run(msg, matches) 
-local jalal = msg['id'] 
+local function masterteam(msg, matches) 
+local reply = msg['id'] 
     chat_id =  msg.to.id 
---by @JALAL_ALDON 
-    if matches[1] == 'kik' and matches[2] == "fwd" and is_momod(msg) then 
+    if matches[1] == 'kick' and matches[2] == "fwd" and is_momod(msg) then 
                     local osccar = 'mmate:'..msg.to.id 
                     redis:set(osccar, true) 
-                    local jd = 'تم قفل اعاده توجيه مع طرد{✔}😈' -- By @JALAL_ALDON 
-reply_msg(jalal, jd, ok_cb, true) 
-elseif matches[1] == 'kik' and matches[2] == 'fwd' and not is_momod(msg) then 
-local asdy = 'للمشرفين فقط عزيزي👿' 
-reply_msg(jalal, asdy, ok_cb, true) 
+                    local master = 'تم قفل اعاده التوجيه مع طرد{✔}😈' 
+reply_msg(reply, master, ok_cb, true) 
+elseif matches[1] == 'kick' and matches[2] == 'fwd' and not is_momod(msg) then 
+local master = 'للمشرفين فقط عزيزي👿' 
+reply_msg(reply, master, ok_cb, true) 
 
-    elseif matches[1] == 'unkik' and matches[2] == 'fwd' and is_momod(msg) then 
+    elseif matches[1] == 'ukick' and matches[2] == 'fwd' and is_momod(msg) then 
       local osccar = 'mmate:'..msg.to.id 
       redis:del(osccar) 
-    local don = ' تم الغاء قفل اعادة توجيه مع طرد{❎}😈' --by @JALAL_ALDON 
-reply_msg(jalal, don, ok_cb, true) 
-elseif matches[1] == 'unkik' and matches[2] == 'fwd' and not is_momod(msg) then 
-local jalal_aldon = 'للمشرفين فقط عزيزي 👿'
-reply_msg(jalal, jalal_aldon, ok_cb, true) 
+    local master = ' تم الغاء قفل اعادة التوجيه مع طرد{❎}😈' 
+reply_msg(reply, master, ok_cb, true) 
+elseif matches[1] == 'ukick' and matches[2] == 'fwd' and not is_momod(msg) then 
+local master = 'للمشرفين فقط عزيزي 👿'
+reply_msg(reply, master, ok_cb, true) 
 end 
 end 
 
 return { 
     patterns = { 
-        '^[!/#](kik) (.*)$', 
-       '^[!/#](unkik) (.*)$' 
+        '^[!/#](kick) (.*)$', 
+       '^[!/#](ukick) (.*)$' 
     }, 
-    run = run, 
+    run = masterteam, 
     pre_process = pre_process 
 } 
 
--- By @JALAL_ALDON 
 end 
+--MASTER TEAM -_-
