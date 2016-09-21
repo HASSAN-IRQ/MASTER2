@@ -174,617 +174,833 @@ end
 
 --Begin supergroup locks 
 local function lock_group_links(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
-  end 
+    local text = "فقط للمشرفين عزيزي"
+    reply_msg(master, text, ok_cb, true) 
+  end
+  local master = msg['id'] 
   local group_link_lock = data[tostring(target)]['settings']['lock_link'] 
   if group_link_lock == 'yes' then 
-   return 'الروابط بالفعل مقفوله عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+   local text = 'الروابط بالفعل مقفوله عزيزي {❌}👿'
+   reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_link'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل الروابط بنجاح{🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل الروابط بنجاح{🔒}😈'
+    reply_msg(master, text, ok_cb, true)
     
   end 
 end 
 
 local function unlock_group_links(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = "فقط للمشرفين عزيزي"
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_link_lock = data[tostring(target)]['settings']['lock_link'] 
   if group_link_lock == 'no' then 
-    return 'الروابط بالفعل مفتوحه عزيزي {✔}👿 \n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'الروابط بالفعل مفتوحه عزيزي {✔}👿 '
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_link'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'تم فتح الروابط بنجاح {🔓}😈 \n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم فتح الروابط بنجاح {🔓}😈 '
+    reply_msg(master, text, ok_cb, true)
 end 
 end 
 
 local function lock_group_all(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_all_lock = data[tostring(target)]['settings']['all'] 
   if group_all_lock == 'yes' then 
-    return 'جميع الاعدادات بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'جميع الاعدادات بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['all'] = 'yes' 
     save_data(_config.moderation.data, data) 
-   return 'تم قفل جميع الاعدادات بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+   local text = 'تم قفل جميع الاعدادات بنجاح {🔒}😈'
+   reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_all(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_all_lock = data[tostring(target)]['settings']['all'] 
   if group_all_lock == 'no' then 
-    return 'جميع الاعدادات بالفعل مفتوحه عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'جميع الاعدادات بالفعل مفتوحه عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['all'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'تم فتح جميع الاعدادات بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم فتح جميع الاعدادات بنجاح {🔓}😈' 
+    reply_msg(master, text, ok_cb, true)
 
   end 
 end 
 
 local function lock_group_etehad(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_etehad_lock = data[tostring(target)]['settings']['etehad'] 
   if group_etehad_lock == 'yes' then 
-    return 'etehad setting is already locked👿✋' 
+    local text = 'etehad setting is already locked👿✋' 
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['etehad'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'etehad setting has been locked😈🔒' 
+    local text = 'etehad setting has been locked😈🔒' 
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_etehad(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_etehad_lock = data[tostring(target)]['settings']['etehad'] 
   if group_etehad_lock == 'no' then 
-    return 'etehad setting is not locked👿👋' 
+    local text = 'etehad setting is not locked👿👋' 
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['etehad'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'etehad setting has been unlocked😈🔓' 
+    local text = 'etehad setting has been unlocked😈🔓' 
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_leave(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_leave_lock = data[tostring(target)]['settings']['leave'] 
   if group_leave_lock == 'yes' then 
-    return 'المغادرة بالفعل مقفوله عزيزي {✔}👿\n'..'��by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id �� '..msg.from.id..'\n' 
+    local text = 'المغادرة بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['leave'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل المغادرة بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل المغادرة بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_leave(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_leave_lock = data[tostring(target)]['settings']['leave'] 
   if group_leave_lock == 'no' then 
-    return 'المغادرة بالفعل مفتوحه عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'المغادرة بالفعل مفتوحه عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['leave'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return ' تم فتح المغادرة بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = ' تم فتح المغادرة بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_operator(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_operator_lock = data[tostring(target)]['settings']['operator'] 
   if group_operator_lock == 'yes' then 
-    return 'مضا الجيوش بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'مضا الجيوش بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['operator'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل مضاد الجيوش بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل مضاد الجيوش بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_operator(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_operator_lock = data[tostring(target)]['settings']['operator'] 
   if group_operator_lock == 'no' then 
-    return 'مضاد الجيوش بالفعل مفتوحه عزيزي  {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'مضاد الجيوش بالفعل مفتوحه عزيزي  {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['operator'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'تم فتح مضاد الجيوش بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n'
+    local text = 'تم فتح مضاد الجيوش بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_reply(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_reply_lock = data[tostring(target)]['settings']['reply'] 
   if group_reply_lock == 'yes' then 
-    return 'الردود بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'الردود بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['reply'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل الردود بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل الردود بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_reply(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_reply_lock = data[tostring(target)]['settings']['reply'] 
   if group_reply_lock == 'no' then 
-    return 'الردود بالفعل مفتوحه عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'الردود بالفعل مفتوحه عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['reply'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'تم فتح الردود بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    return 'تم فتح الردود بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
-local function lock_group_username(msg, data, target) 
+local function lock_group_username(msg, data, target)
+  local master = msg['id'] 
   if not is_momod(msg) then 
     return 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_username_lock = data[tostring(target)]['settings']['username'] 
   if group_username_lock == 'yes' then 
-    return 'المعرفات بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  else 
+    local text = 'المعرفات بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
+  else
     data[tostring(target)]['settings']['username'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل المعرفات بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل المعرفات بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_username(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_username_lock = data[tostring(target)]['settings']['username'] 
   if group_username_lock == 'no' then 
-    return 'المعرفات بالفعل مفتوحه عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'المعرفات بالفعل مفتوحه عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['username'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'تم فتح المعرفات بنجاح  {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم فتح المعرفات بنجاح  {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_media(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_media_lock = data[tostring(target)]['settings']['media'] 
   if group_media_lock == 'yes' then 
-    return 'الوسائط بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'الوسائط بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['media'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل الوسائط بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل الوسائط بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_media(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_media_lock = data[tostring(target)]['settings']['media'] 
   if group_media_lock == 'no' then 
-    return 'الوسائط بالفعل مفتوحه عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  else 
+    local text = 'الوسائط بالفعل مفتوحه عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
+  else
     data[tostring(target)]['settings']['media'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'تم فتح الوسائط بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  end 
+    local text = 'تم فتح الوسائط بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
 end 
 
 local function lock_group_join(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_join_lock = data[tostring(target)]['settings']['join'] 
   if group_join_lock == 'yes' then 
-    return 'دخول بالرابط بالفعل مقفول عزيزي {✔}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'دخول بالرابط بالفعل مقفول عزيزي {✔}😈'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['join'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل دخول بالرابط بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل دخول بالرابط بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_join(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_join_lock = data[tostring(target)]['settings']['join'] 
   if group_join_lock == 'no' then 
-   return 'دخول بالرابط بالفعل مفتوح عزيزي {❌}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  else 
+   local text = 'دخول بالرابط بالفعل مفتوح عزيزي {❌}😈'
+   reply_msg(master, text, ok_cb, true)
+  else
     data[tostring(target)]['settings']['join'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'تم فتح دخول بالرابط بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم فتح دخول بالرابط بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_fwd(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_fwd_lock = data[tostring(target)]['settings']['fwd'] 
   if group_fwd_lock == 'yes' then 
-    return 'اعاده توجيه بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'اعاده توجيه بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['fwd'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل اعاده توجيه بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل اعاده توجيه بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_fwd(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_fwd_lock = data[tostring(target)]['settings']['fwd'] 
   if group_fwd_lock == 'no' then 
-    return 'اعادة توجيه مفتوحه بالفعل عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  else 
+    local text = 'اعادة توجيه مفتوحه بالفعل عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
+  else
     data[tostring(target)]['settings']['fwd'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'تم فتح اعاده توجيه بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم فتح اعاده توجيه بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_english(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_english_lock = data[tostring(target)]['settings']['english'] 
   if group_english_lock == 'yes' then 
-    return 'اللغه انكليزية بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'اللغه انكليزية بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['english'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل اللغه انكليزية بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل اللغه انكليزية بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_english(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_english_lock = data[tostring(target)]['settings']['english'] 
   if group_english_lock == 'no' then 
-    return 'اللغه انكليزية مفتوحه بالفعل عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'��Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'اللغه انكليزية مفتوحه بالفعل عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['english'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return ' تم فتح اللغه انكليزية بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = ' تم فتح اللغه انكليزية بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_all(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_all_lock = data[tostring(target)]['settings']['all'] 
   if group_all_lock == 'no' then 
-    return 'جميع الاعدادات مفتوحه بالفعل عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'جميع الاعدادات مفتوحه بالفعل عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['all'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return ' تم فتح جميع الاعدادات بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = ' تم فتح جميع الاعدادات بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_spam(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   if not is_owner(msg) then 
-    return "Owners only✋👿" 
+    local text = "Owners only✋👿" 
+    reply_msg(master, text, ok_cb, true)
   end 
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam'] 
   if group_spam_lock == 'yes' then 
-    return 'السبام بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'السبام بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_spam'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل السبام بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل السبام بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_spam(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam'] 
   if group_spam_lock == 'no' then 
-    return 'السبام مفتوحه بالفعل عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'السبام مفتوحه بالفعل عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_spam'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return ' تم فتح السبام بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = ' تم فتح السبام بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_flood(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_flood_lock = data[tostring(target)]['settings']['flood'] 
   if group_flood_lock == 'yes' then 
-    return 'التكرار بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'التكرار بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['flood'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل التكرار بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل التكرار بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_flood(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_flood_lock = data[tostring(target)]['settings']['flood'] 
   if group_flood_lock == 'no' then 
-    return 'التكرار مفتوحه بالفعل عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'التكرار مفتوحه بالفعل عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['flood'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return ' تم فتح التكرار بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  end 
+    local text = ' تم فتح التكرار بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
+  end
 end 
 
 local function lock_group_arabic(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_arabic_lock = data[tostring(target)]['settings']['lock_arabic'] 
   if group_arabic_lock == 'yes' then 
-    return 'اللغه العربية بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'اللغه العربية بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_arabic'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل اللغه العربية بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل اللغه العربية بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_arabic(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_arabic_lock = data[tostring(target)]['settings']['lock_arabic'] 
   if group_arabic_lock == 'no' then 
-    return 'اللغه العربية مفتوحه بالفعل عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'اللغه العربية مفتوحه بالفعل عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_arabic'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return ' تم فتح اللغه العربية بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  end 
+    local text = ' تم فتح اللغه العربية بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
 end 
 
 local function lock_group_membermod(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_member_lock = data[tostring(target)]['settings']['lock_member'] 
   if group_member_lock == 'yes' then 
-    return 'الاضافه بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'الاضافه بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_member'] = 'yes' 
     save_data(_config.moderation.data, data) 
-  end 
-  return 'تم قفل الاضافه بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل الاضافه بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
+  end
 end 
 
 local function unlock_group_membermod(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_member_lock = data[tostring(target)]['settings']['lock_member'] 
   if group_member_lock == 'no' then 
-    return 'الاضافه مفتوحه بالفعل عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  else 
+    local text = 'الاضافه مفتوحه بالفعل عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
+  else
     data[tostring(target)]['settings']['lock_member'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return ' تم فتح الاضافه بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = ' تم فتح الاضافه بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_rtl(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_rtl_lock = data[tostring(target)]['settings']['lock_rtl'] 
   if group_rtl_lock == 'yes' then 
-    return 'الاضافه جماعية مقفوله بالفعل عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'الاضافه جماعية مقفوله بالفعل عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_rtl'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل الاضافه جماعية بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل الاضافه جماعية بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_rtl(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_rtl_lock = data[tostring(target)]['settings']['lock_rtl'] 
   if group_rtl_lock == 'no' then 
-    return 'الاضافه جماعية مفتوحه بالفعل عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'الاضافه جماعية مفتوحه بالفعل عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_rtl'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return ' تم فتح الاضافه جماعية بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = ' تم فتح الاضافه جماعية بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end
 
 local function lock_group_tgservice(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_tgservice_lock = data[tostring(target)]['settings']['lock_tgservice'] 
   if group_tgservice_lock == 'yes' then 
-    return 'اشعارات دخول بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'اشعارات دخول بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_tgservice'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل اشعارات دخول بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل اشعارات دخول بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_tgservice(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_tgservice_lock = data[tostring(target)]['settings']['lock_tgservice'] 
   if group_tgservice_lock == 'no' then 
-    return 'اشعارات دخول مفتوحه بالفعل عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'اشعارات دخول مفتوحه بالفعل عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_tgservice'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return ' تم فتح اشغارات دخول بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = ' تم فتح اشغارات دخول بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_sticker(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker'] 
   if group_sticker_lock == 'yes' then 
-    return 'الملصقات بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  else 
+    local text = 'الملصقات بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
+  else
     data[tostring(target)]['settings']['lock_sticker'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل الملصقات بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل الملصقات بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_sticker(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker'] 
   if group_sticker_lock == 'no' then 
-    return 'الملصقات مفتوحه بالفعل عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  else 
+    local text = 'الملصقات مفتوحه بالفعل عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
+  else
     data[tostring(target)]['settings']['lock_sticker'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return ' تم فتح الملصقات بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = ' تم فتح الملصقات بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function lock_group_bots(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_bots_lock = data[tostring(target)]['settings']['lock_bots'] 
   if group_bots_lock == 'yes' then 
-    return 'البوتات بالفعل مقفوله عزيزي {✔}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'البوتات بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_bots'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل البوتات بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل البوتات بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_bots(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_bots_lock = data[tostring(target)]['settings']['lock_bots'] 
   if group_bots_lock == 'no' then 
-    return 'البوتات بالفعل مفتوحه عزيزي {❌}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'البوتات بالفعل مفتوحه عزيزي {❌}😈'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_bots'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'تم فتح البوتات بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
-  end 
+    local text = 'تم فتح البوتات بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
+  end
 end 
 
 local function lock_group_contacts(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_rtl_lock = data[tostring(target)]['settings']['lock_contacts'] 
   if group_contacts_lock == 'yes' then 
-    return 'جهات الاتصال بالفعل مقفوله عزيزي {✔}👿n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'جهات الاتصال بالفعل مقفوله عزيزي {✔}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_contacts'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'تم قفل جهات الاتصال بنجاح {🔒}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم قفل جهات الاتصال بنجاح {🔒}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function unlock_group_contacts(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_contacts_lock = data[tostring(target)]['settings']['lock_contacts'] 
   if group_contacts_lock == 'no' then 
-    return 'جهات الاتصال بالفعل مفتوحه عزيزي {❌}👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'جهات الاتصال بالفعل مفتوحه عزيزي {❌}👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['lock_contacts'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'تم فتح جهات الاتصال بنجاح {🔓}😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'تم فتح جهات الاتصال بنجاح {🔓}😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function enable_strict_rules(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_strict_lock = data[tostring(target)]['settings']['strict'] 
   if group_strict_lock == 'yes' then 
-    return 'Settings are already strictly enforced 👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'Settings are already strictly enforced 👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['strict'] = 'yes' 
     save_data(_config.moderation.data, data) 
-    return 'Settings will be strictly enforced 😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'Settings will be strictly enforced 😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 
 local function disable_strict_rules(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text = 
+    reply_msg(master, text, ok_cb, true)
   end 
+  local master = msg['id'] 
   local group_strict_lock = data[tostring(target)]['settings']['strict'] 
   if group_strict_lock == 'no' then 
-    return 'Settings are not strictly enforced 👿\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n'  
+    local text = 'Settings are not strictly enforced 👿'
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['strict'] = 'no' 
     save_data(_config.moderation.data, data) 
-    return 'Settings will not be strictly enforced 😈\n'..'👾by 🔹 @'..msg.from.username..'\n'..'♑Name 🔹 '..msg.from.first_name..'\n'..'🆔Your id 🔹 '..msg.from.id..'\n' 
+    local text = 'Settings will not be strictly enforced 😈'
+    reply_msg(master, text, ok_cb, true)
   end 
 end 
 --End supergroup locks 
 
 --'Set supergroup rules' function 
 local function set_rulesmod(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return 
+    local text =
+    reply_msg(master, text, ok_cb, true)
   end 
   local data_cat = 'rules' 
   data[tostring(target)][data_cat] = rules 
@@ -806,8 +1022,10 @@ end
 
 --Set supergroup to public or not public function 
 local function set_public_membermod(msg, data, target) 
+  local master = msg['id'] 
   if not is_momod(msg) then 
-    return "For moderators only👋👿" 
+    local text = "For moderators only👋👿" 
+    reply_msg(master, text, ok_cb, true)
   end 
   local group_public_lock = data[tostring(target)]['settings']['public'] 
   local long_id = data[tostring(target)]['long_id'] 
@@ -815,8 +1033,10 @@ local function set_public_membermod(msg, data, target)
    data[tostring(target)]['long_id'] = msg.to.peer_id 
    save_data(_config.moderation.data, data) 
   end 
+  local master = msg['id'] 
   if group_public_lock == 'yes' then 
-    return 'Group is already public👿' 
+    local text = 'Group is already public👿' 
+    reply_msg(master, text, ok_cb, true)
   else 
     data[tostring(target)]['settings']['public'] = 'yes' 
     save_data(_config.moderation.data, data) 
@@ -917,16 +1137,18 @@ function show_supergroup_settingsmod(msg, target)
          data[tostring(target)]['settings']['etehad'] = 'no' 
       end 
    end 
+  local master = msg['id'] 
   local gp_type = data[tostring(msg.to.id)]['group_type'] 
   local settings = data[tostring(target)]['settings'] 
   local text = "😈-----🔩-----😈\nℹ️SuperGroups Settings: 💢️\n🔱Group name : "..msg.to.title.."\n😈-----🔩-----😈\n 👁‍🗨 lock links : "..settings.lock_link.."\n 👁‍🗨 Lock contacts: "..settings.lock_contacts.."\n 👁‍🗨 Lock flood: "..settings.flood.."\n 👁‍🗨Flood sensitivity : "..NUM_MSG_MAX.."\n 👁‍🗨 Lock spam: "..settings.lock_spam.."\n 👁‍🗨 Lock Arabic: "..settings.lock_arabic.."\n 👁‍🗨 Lock english: "..settings.english.."\n 👁‍🗨 Lock Member: "..settings.lock_member.."\n 👁‍🗨 Lock RTL: "..settings.lock_rtl.."\n 👁‍🗨 Lock Tgservice: "..settings.lock_tgservice.."\n 👁‍🗨 Lock sticker: "..settings.lock_sticker.."\n 👁‍🗨 Lock bots: "..bots_protection.."\n 👁‍🗨 Lock fwd(forward): "..settings.fwd.."\n 👁‍🗨 lock reply: "..settings.reply.."\n 👁‍🗨 Lock join : "..settings.join.."\n 👁‍🗨 Lock leave: "..settings.leave.."\n🔇Lock all: "..settings.all.."\n😈-----🔩-----😈\n❕️About Group: 🔽️\n😈-----🔩-----😈\n⚠️Group type: "..gp_type.."\n✳️Public: "..settings.public.."\n⛔️Strict settings: "..settings.strict.."\n😈-----🔩-----😈\n💈MASTER BOT™💈" 
-  return text 
+  local mas = text 
+  reply_msg(master, mas, ok_cb, true)
 end 
 
 local function promote_admin(receiver, member_username, user_id) 
   local data = load_data(_config.moderation.data) 
   local group = string.gsub(receiver, 'channel#id', '') 
-  local member_tag_username = string.gsub(member_username, '@', '(at)') 
+  local member_tag_username = string.gsub(member_username, '@', '@') 
   if not data[group] then 
     return 
   end 
@@ -951,11 +1173,13 @@ local function demote_admin(receiver, member_username, user_id)
 end 
 
 local function promote2(receiver, member_username, user_id) 
+  local master = msg['id'] 
   local data = load_data(_config.moderation.data) 
   local group = string.gsub(receiver, 'channel#id', '') 
-  local member_tag_username = string.gsub(member_username, '@', '(at)') 
+  local member_tag_username = string.gsub(member_username, '@', '@') 
   if not data[group] then 
-    return send_large_msg(receiver, 'SuperGroup is not added.') 
+    local text = send_large_msg(receiver, 'SuperGroup is not added.') 
+    reply_msg(master, text, ok_cb, true)
   end 
   if data[group]['moderators'][tostring(user_id)] then 
     return send_large_msg(receiver, member_username..' is already a moderator.') 
@@ -980,14 +1204,18 @@ local function demote2(receiver, member_username, user_id)
 end 
 
 local function modlist(msg) 
+  local master = msg['id'] 
   local data = load_data(_config.moderation.data) 
   local groups = "groups" 
   if not data[tostring(groups)][tostring(msg.to.id)] then 
-    return 'SuperGroup is not added.' 
+    local text = 'SuperGroup is not added.' 
+    reply_msg(master, text, ok_cb, true)
   end 
   -- determine if table is empty 
+  local master = msg['id'] 
   if next(data[tostring(msg.to.id)]['moderators']) == nil then 
-    return 'No moderator in this group.' 
+    local text = 'No moderator in this group.' 
+    reply_msg(master, text, ok_cb, true)
   end 
   local i = 1 
   local message = '\nList of moderators for ' .. string.gsub(msg.to.print_name, '_', ' ') .. ':\n' 
@@ -995,7 +1223,9 @@ local function modlist(msg)
     message = message ..i..' - '..v..' [' ..k.. '] \n' 
     i = i + 1 
   end 
-  return message 
+  local master = msg['id'] 
+  local text = message 
+  reply_msg(master, text, ok_cb, true)
 end 
 
 -- Start by reply actions 
@@ -1453,7 +1683,8 @@ local function set_supergroup_photo(msg, success, result)
 end 
 
 --Run function 
-local function DevMonster(msg, matches) 
+local function master(msg, matches) 
+local master = msg['id'] 
    if msg.to.type == 'chat' then 
       if matches[1] == 'tosuper' then 
          if not is_admin1(msg) then 
@@ -1467,7 +1698,9 @@ local function DevMonster(msg, matches)
          if not is_admin1(msg) then 
             return 
          end 
-         return "Already a SuperGroup👿✔" 
+         local master = msg['id'] 
+         local text = "Already a SuperGroup👿✔" 
+         reply_msg(master, text, ok_cb, true)
       end 
    end 
    if msg.to.type == 'channel' then 
@@ -1480,9 +1713,11 @@ local function DevMonster(msg, matches)
          if not is_admin1(msg) and not is_support(support_id) then 
             return 
          end 
+         local master = msg['id'] 
          if is_super_group(msg) then 
-        local iDev1 = "is already actived 👿👋" 
-         return send_large_msg(receiver, iDev1) 
+        local prince = "is already actived 👿👋" 
+         local text = send_large_msg(receiver, prince) 
+         reply_msg(master, text, ok_cb, true)
          end 
          print("SuperGroup "..msg.to.print_name.."("..msg.to.id..") added") 
          savelog(msg.to.id, name_log.." ["..msg.from.id.."] added SuperGroup") 
@@ -1492,8 +1727,8 @@ local function DevMonster(msg, matches)
       end 
       if matches[1] == 'add' and is_admin1(msg) and not matches[2] then 
          if not is_super_group(msg) then 
-           local iDev1 = "This Group not actived Ok ok now I active Group💡😈" 
-           return send_large_msg(receiver, iDev1) 
+           local prince = "This Group not actived Ok ok now I active Group💡😈" 
+           return send_large_msg(receiver, prince) 
          end 
          print("SuperGroup "..msg.to.print_name.."("..msg.to.id..") removed") 
          superrem(msg) 
@@ -1537,9 +1772,11 @@ local function DevMonster(msg, matches)
          return "SuperGroup owner is👿 ["..group_owner..']' 
       end 
 
+      local master = msg['id'] 
       if matches[1] == "modlist" then 
          savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group modlist") 
-         return modlist(msg) 
+         local text = modlist(msg) 
+         reply_msg(master, text, ok_cb, true)
          -- channel_get_admins(receiver,callback, {receiver = receiver}) 
       end 
 
@@ -1644,7 +1881,7 @@ local function DevMonster(msg, matches)
          end 
       end 
 
-      if matches[1] == 'newlink' and is_momod(msg)then 
+      if matches[1] == 'nlink' and is_momod(msg)then 
          local function callback_link (extra , success, result) 
          local receiver = get_receiver(msg) 
             if success == 0 then 
@@ -1652,7 +1889,7 @@ local function DevMonster(msg, matches)
                data[tostring(msg.to.id)]['settings']['set_link'] = nil 
                save_data(_config.moderation.data, data) 
             else 
-               send_large_msg(receiver, "Created a new link") 
+               send_large_msg(receiver, "تم انشاء رابط جديد للمجموعه ...") 
                data[tostring(msg.to.id)]['settings']['set_link'] = result 
                save_data(_config.moderation.data, data) 
             end 
@@ -1661,17 +1898,21 @@ local function DevMonster(msg, matches)
          export_channel_link(receiver, callback_link, false) 
       end 
 
-      if matches[1] == 'setlink' and is_owner(msg) then 
+      local master = msg['id'] 
+      if matches[1] == 'slink' and is_owner(msg) then 
          data[tostring(msg.to.id)]['settings']['set_link'] = 'waiting' 
          save_data(_config.moderation.data, data) 
-         return 'Please send the new group link now' 
+         local text = 'Please send the new group link now' 
+         reply_msg(master, text, ok_cb, true)
       end 
 
+      local master = msg['id'] 
       if msg.text then 
          if msg.text:match("^(https://telegram.me/joinchat/%S+)$") and data[tostring(msg.to.id)]['settings']['set_link'] == 'waiting' and is_owner(msg) then 
             data[tostring(msg.to.id)]['settings']['set_link'] = msg.text 
             save_data(_config.moderation.data, data) 
-            return "New link set" 
+            local text = "New link set" 
+            reply_msg(master, text, ok_cb, true)
          end 
       end 
 
@@ -1679,18 +1920,22 @@ local function DevMonster(msg, matches)
          if not is_momod(msg) then 
             return 
          end 
+         local master = msg['id'] 
          local group_link = data[tostring(msg.to.id)]['settings']['set_link'] 
          if not group_link then 
-            return "Create a link using /newlink first!\n\nOr if I am not creator use /setlink to set your link" 
+            local text = "Create a link using /nlink first!\n\nOr if I am not creator use /slink to set your link" 
+            reply_msg(master, text, ok_cb, true)
          end 
+         local master = msg['id'] 
          savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]") 
-         return "link Group ["..msg.to.title.."] :\n"..group_link 
+         local text = "link Group ["..msg.to.title.."] :\n"..group_link 
+         reply_msg(master, text, ok_cb, true)
       end 
 
-      if matches[1] == "invite" and is_sudo(msg) then 
+      if matches[1] == "inv" and is_sudo(msg) then 
          local cbres_extra = { 
             channel = get_receiver(msg), 
-            get_cmd = "invite" 
+            get_cmd = "inv" 
          } 
          local username = matches[2] 
          local username = username:gsub("@","") 
@@ -2009,7 +2254,7 @@ local function DevMonster(msg, matches)
          end 
       end 
 
-      if matches[1] == 'lock' and is_momod(msg) then 
+      if matches[1] == 'lk' and is_momod(msg) then 
          local target = msg.to.id 
               if matches[2] == 'all' then 
          local safemode ={ 
@@ -2079,7 +2324,7 @@ local function DevMonster(msg, matches)
             savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked rtl chars. in names") 
             return lock_group_rtl(msg, data, target) 
          end 
-         if matches[2] == 'tgservice' then 
+         if matches[2] == 'tg' then 
             savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked Tgservice Actions") 
             return lock_group_tgservice(msg, data, target) 
          end 
@@ -2117,7 +2362,7 @@ local function DevMonster(msg, matches)
          end 
       end 
 
-      if matches[1] == 'ulock' and is_momod(msg) then 
+      if matches[1] == 'ulk' and is_momod(msg) then 
          local target = msg.to.id 
               if matches[2] == 'all' then 
          local dsafemode ={ 
@@ -2187,7 +2432,7 @@ local function DevMonster(msg, matches)
             savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked RTL chars. in names") 
             return unlock_group_rtl(msg, data, target) 
          end 
-            if matches[2] == 'tgservice' then 
+            if matches[2] == 'tg' then 
             savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked tgservice actions") 
             return unlock_group_tgservice(msg, data, target) 
          end 
@@ -2250,7 +2495,7 @@ local function DevMonster(msg, matches)
          end 
       end 
 
-      if matches[1] == 'mute' and is_owner(msg) then 
+      if matches[1] == 'lk' and is_owner(msg) then 
          local chat_id = msg.to.id 
          if matches[2] == 'audio' then 
          local msg_type = 'Audio' 
@@ -2323,7 +2568,7 @@ local function DevMonster(msg, matches)
             end 
          end 
       end 
-      if matches[1] == 'umute' and is_momod(msg) then 
+      if matches[1] == 'ulk' and is_momod(msg) then 
          local chat_id = msg.to.id 
          if matches[2] == 'audio' then 
          local msg_type = 'Audio' 
@@ -2537,8 +2782,8 @@ return {
    "^[#!/]([Ii][Dd])$", 
    "^[#!/]([Ii][Dd]) (.*)$", 
    "^[#!/]([Kk]kme)$", 
-   "^[#!/]([Nn]ewlink)$", 
-   "^[#!/]([Ss]etlink)$", 
+   "^[#!/]([Nn]link)$", 
+   "^[#!/]([Ss]link)$", 
    "^[#!/]([Ll]ink)$", 
    "^[#!/]([Rr]es) (.*)$", 
    "^[#!/]([Ss]etadmin) (.*)$", 
@@ -2557,10 +2802,10 @@ return {
    "^[#!/]([Ss]etphoto)$", 
    "^[#!/]([Ss]etusername) (.*)$", 
    "^[#!/]([Dd]el)$", 
-   "^[#!/](lock) (.*)$", 
-   "^[#!/](ulock) (.*)$", 
-   "^[#!/](mute) ([^%s]+)$", 
-   "^[#!/](umute) ([^%s]+)$", 
+   "^[#!/](lk) (.*)$", 
+   "^[#!/](ulk) (.*)$", 
+   "^[#!/](lk) ([^%s]+)$", 
+   "^[#!/](ulk) ([^%s]+)$", 
    "^[#!/]([Ss]ilent)$", 
    "^[#!/]([Ss]ilent) (.*)$", 
    "^[#!/]([Uu]silent)$", 
@@ -2584,6 +2829,6 @@ return {
    "%[(contact)%]", 
    "^!!tgservice (.+)$", 
   }, 
-  run = DevMonster, 
+  run = master, 
   pre_process = pre_process 
 } 
