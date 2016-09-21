@@ -7,7 +7,7 @@ function pre_process(msg)
       return msg 
 end 
 
-function iDev1(msg, matches) 
+function master(msg, matches) 
  local welcome = 'mate:'..msg.to.id 
   if not redis:get(welcome) then 
   return os.execute("./launch.sh") 
@@ -30,7 +30,8 @@ return {
     "^(شلونكم)$",
     "^(مرحبا)$"
   }, 
-  run = iDev1, 
+  run = master, 
   pre_process = pre_process 
 } 
 end 
+--MASTER TEAM -_-
