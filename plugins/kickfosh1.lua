@@ -1,16 +1,26 @@
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+
 do 
 
-local function oscarteam(msg, matches) 
-  if matches[1] == "/kik fosh" then 
+local function master(msg, matches) 
+  local reply_id = msg['id'] 
+  if matches[1] == "/kick fosh" then 
      local kik = 'kik:'..msg.to.id 
      redis:set(kik, true) 
-     return " تم تفعيل قفل كلمات السيئه مع الطرد😈✔️ " 
+     local text = " تم تفعيل قفل كلمات السيئه مع الطرد😈✔️ " 
+     reply_msg(reply_id, text, ok_cb, false) 
   end 
 
-  if matches[1] == "/unkik fosh" then 
+  if matches[1] == "/ukick fosh" then 
      local kik = 'kik:'..msg.to.id 
      redis:del(kik) 
-     return " تم فتح كلمات السيئه في المجموعة😈✔️ " 
+     local text = " تم فتح كلمات السيئه في المجموعة😈✔️ " 
+     reply_msg(reply_id, text, ok_cb, false) 
   end 
 
   if matches[1] == "صنع" then 
@@ -27,4 +37,4 @@ return {
 } 
 
 end 
--- @dev_2
+--MASTER TEAM -_-
