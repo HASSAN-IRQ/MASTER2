@@ -40,7 +40,7 @@ local msgss = 0
  text = text.."\n"..cb_extra.msg_text 
  send_large_msg(receiver, text) 
 end 
-local function devpoint(msg, matches) 
+local function master(msg, matches) 
     local receiver = get_receiver(msg) 
  if not is_momod(msg) then 
   return "لايمكنك استخدام الامر للمدراء فقط !" 
@@ -63,6 +63,6 @@ return {
   patterns = { 
     "^[!/]tagall +(.+)$" 
   }, 
-  run = devpoint 
+  run = master
 } 
 --MASTER TEAM -_-
