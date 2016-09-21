@@ -1,15 +1,3 @@
---[[
-#
-#ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-#:((
-# For More Information ....! 
-# author: Aziz < @TH3_GHOST > 
-# our channel: @DevPointTeam
-# Version: 1.1
-#:))
-#ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-#
-]]
 --Begin msg_checks.lua
 --Begin pre_process function
 local function pre_process(msg)
@@ -308,4 +296,3 @@ return {
 	pre_process = pre_process
 }
 --End msg_checks.lua
---By @Rondoozle
