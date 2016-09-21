@@ -33,7 +33,7 @@ return {
   patterns = { 
      "(.*)" 
   }, 
-  run = oscarteam, 
+  run = master, 
 } 
 
 end 
