@@ -1,6 +1,13 @@
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+
 do 
 
-local function run(msg,matches) 
+local function masterteam(msg,matches) 
 
 local reply_id = msg['id'] 
 if is_momod(msg) and matches[1]== 'help' then 
@@ -32,6 +39,7 @@ return {
 patterns ={ 
   "^[!#/](help)$", 
 }, 
-run = run 
+run = masterteam 
 } 
 end
+--MASTER TEAM -_-
