@@ -1,4 +1,11 @@
-﻿local function pre_process(msg)
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+
+local function pre_process(msg)
 local to = msg.to.type
 local service = msg.service
 	if to == 'user' and msg.fwd_from then
@@ -90,9 +97,9 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 	end
     if matches[1] == 'join' then
 	local data = load_data(_config.moderation.data)
-	if matches[2]:lower() == 'english' and matches[3]:lower() == 'support' then
-		savelog(msg.to.id, name_log.." ["..msg.from.id.."] tried to join English support")
-		local target = 1041751030
+	if matches[2]:lower() == 'master' and matches[3]:lower() == 'su' then
+		savelog(msg.to.id, name_log.." ["..msg.from.id.."] يحاول الدخول الى مجموعة الدعم")
+		local target = 1093373203
 		local long_id = data[tostring(target)]['long_id']
 		if is_banned(msg.from.id, tostring(target)) then
 			return 'You are banned.'
@@ -111,9 +118,9 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 		local user = msg.from.peer_id
 		chat_add_user(chat, user, ok_cb, false)
 		channel_invite(channel, user, ok_cb, false)
-	elseif matches[2]:lower() == 'persian' and matches[3]:lower() == 'support' then
-		savelog(msg.to.id, name_log.." ["..msg.from.id.."] tried to join Persian support")
-		local target = 1017700355
+	elseif matches[2]:lower() == 'دعم' and matches[3]:lower() == 'ماستر' then
+		savelog(msg.to.id, name_log.." ["..msg.from.id.."] يحاول الدخول الى مجموعة الدعم")
+		local target = 1093373203
 		local long_id = data[tostring(target)]['long_id']
 		if is_banned(msg.from.id, tostring(target)) then
 			return 'You are banned.'
@@ -250,9 +257,11 @@ return {
     "^[#!/](chatlist)$",
     "^[#!/](join) (%d+)$",
 	"^[#!/](join) (.*) (support)$",
-    "^[#!/](kickme) (.*)$",
+	"^[#!/](join) (.*) (ماستر)$",
+    "^[#!/](kkme) (.*)$",
     "^!!tgservice (chat_add_user)$",
     },
     run = run,
 	pre_process = pre_process
 }
+--MASTER TEAM -_-
