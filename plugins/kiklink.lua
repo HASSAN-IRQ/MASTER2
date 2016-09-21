@@ -1,7 +1,14 @@
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+
 do 
 
 local function pre_process(msg) 
-local monstero = msg['id'] 
+local reply = msg['id'] 
 local oscpar = 'XVOIPER:'..msg.to.id 
 local user = msg.from.id 
 local chat = msg.to.id 
@@ -10,43 +17,44 @@ local bot = msg.text:match("?[Ss][Tt][Aa][Rr][Tt]=") or msg.text:match("?[Ss][Tt
             if link and redis:get(oscpar) and not bot and not is_momod(msg) then 
             delete_msg(msg.id, ok_cb, true) 
             kick_user(user, chat) 
-            local psp = " 🔹عزيزي : "..msg.from.first_name.."".."\n".."🔹يمنع نشر (روابط - اعلانات - قنوات)🍃".."\n".."🔹كان عليك التزام بالقوانين🚫 ".."\n".."🔹 لقد تم طردك يا : @"..(msg.from.username or " ") 
-reply_msg(monstero, psp, ok_cb, true) 
+            local master = " 🔹عزيزي : "..msg.from.first_name.."".."\n".."🔹يمنع نشر (روابط - اعلانات - قنوات)🍃".."\n".."🔹كان عليك التزام بالقوانين🚫 ".."\n".."🔹 لقد تم طردك يا : @"..(msg.from.username or " ") 
+reply_msg(reply, master, ok_cb, true) 
         end 
 
         return msg 
     end 
 
-local function monster(msg, matches) 
-local monster = msg['id'] 
+local function masterteam(msg, matches) 
+local master = msg['id'] 
     chat_id =  msg.to.id 
-    if matches[1] == 'kik' and matches[2] == "link" and is_momod(msg) then 
+    if matches[1] == 'kick' and matches[2] == "link" and is_momod(msg) then 
                     local oscpar = 'XVOIPER:'..msg.to.id 
                     redis:set(oscpar, true) 
-                    local dd = 'تم قفل الروابط مع تحذير وطرد {✔}😈' 
-reply_msg(monster, dd, ok_cb, true) 
-elseif matches[1] == 'kik' and matches[2] == 'link' and not is_momod(msg) then 
-local pxpp = 'للمشرفين فقط✋👿' 
-reply_msg(monster, pxpp, ok_cb, true) 
+                    local text = 'تم قفل الروابط مع تحذير وطرد {✔}😈' 
+reply_msg(master, text, ok_cb, true) 
+elseif matches[1] == 'kick' and matches[2] == 'link' and not is_momod(msg) then 
+local text = 'للمشرفين فقط✋👿' 
+reply_msg(master, text, ok_cb, true) 
 
-    elseif matches[1] == 'unkik' and matches[2] == 'link' and is_momod(msg) then 
+    elseif matches[1] == 'ukick' and matches[2] == 'link' and is_momod(msg) then 
       local oscpar = 'XVOIPER:'..msg.to.id 
       redis:del(oscpar) 
-    local gg = ' تم الغاء قفل الروابط مع تحذير وطرد {❎}😈' 
-reply_msg(monster, gg, ok_cb, true) 
-elseif matches[1] == 'unkik' and matches[2] == 'link' and not is_momod(msg) then 
-local pxff = 'للمشرفين فقط✋👿' 
-reply_msg(monster, pxff, ok_cb, true) 
+    local text = ' تم الغاء قفل الروابط مع تحذير وطرد {❎}😈' 
+reply_msg(master, text, ok_cb, true) 
+elseif matches[1] == 'ukick' and matches[2] == 'link' and not is_momod(msg) then 
+local text = 'للمشرفين فقط✋👿' 
+reply_msg(master, text, ok_cb, true) 
 end 
 end 
 
 return { 
     patterns = { 
-        '^[!/#](kik) (.*)$', 
-        '^[!/#](unkik) (.*)$' 
+        '^[!/#](kick) (.*)$', 
+        '^[!/#](ukick) (.*)$' 
     }, 
-    run = monster, 
+    run = master, 
     pre_process = pre_process 
 } 
 
 end 
+--MASTER TEAM -_-
