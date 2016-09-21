@@ -1,10 +1,3 @@
---[[ ▄▇▇▇▇▇▇▄▇▇▇▇▇▇▄
-
-     ❉❉❉ ฿ᵧ ➣ @PXPP3
-    
-   ➥ CHANNEL ◐ @INSTAOFFICIAL
-    ▄▇▇▇▇▇▇▄▇▇▇▇▇▇▄
-]] 
 do
 
 function translate(source_lang, target_lang, text)
