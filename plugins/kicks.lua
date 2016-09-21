@@ -1,9 +1,15 @@
---MASTER TEAM
+--" ╭━╮╭━╮╱╱╱╱╱╭╮               "
+--" ┃┃╰╯┃┃╱╱╱╱╭╯╰╮              "      
+--" ┃╭╮╭╮┣━━┳━┻╮╭╋━━┳━╮           "
+--" ┃┃┃┃┃┃╭╮┃━━┫┃┃┃━┫╭┫           "
+--" ┃┃┃┃┃┃╭╮┣━━┃╰┫┃━┫┃             "
+--" ╰╯╰╯╰┻╯╰┻━━┻━┻━━┻╯             "
+
 do 
 local function run(msg,matches) 
 local reply_id = msg['id'] 
 if is_momod(msg) and matches[1]== 'hkick' then 
-  local xviper = [[🌐MASTER BOT V 2.0 ♺
+  local master = [[🌐MASTER BOT V 2.0 ♺
          *↝KICKS↝*
 🔹➖➖➖🔹➖➖➖🔹
 ➥KICKS :
@@ -29,13 +35,13 @@ if is_momod(msg) and matches[1]== 'hkick' then
 Owner Only : 
 ♺silent : لقفل دردشه مع طرد
 ♺usilent : لفتح دردشه مع طرد]] 
-reply_msg(reply_id, xviper, ok_cb, false) 
+reply_msg(reply_id, master, ok_cb, false) 
 end 
 
 local reply_id = msg['id'] 
 if not is_momod(msg) then 
-local xviper = "فَقًطِ لُلُمٌشِرَفَيَنَ ْعزُيَزُيَ" 
-reply_msg(reply_id, xviper, ok_cb, false) 
+local master = "فَقًطِ لُلُمٌشِرَفَيَنَ ْعزُيَزُيَ" 
+reply_msg(reply_id, master, ok_cb, false) 
 end 
 
 end 
@@ -46,3 +52,4 @@ patterns ={
 run = run 
 } 
 end
+--MASTER TEAM -_-
