@@ -35,7 +35,7 @@ reply_msg(master, text, ok_cb, true)
     elseif matches[1] == 'ukick' and matches[2] == 'audio' and is_momod(msg) then 
       local oscar = 'mate:'..msg.to.id 
       redis:del(oscar) 
-    local text = ' تم الغاء قفل بصمات مع طرد{❎}😈' 
+    local text = ' تم الغاء قفل البصمات مع طرد{❎}😈' 
 reply_msg(master, text, ok_cb, true) 
 elseif matches[1] == 'ukick' and matches[2] == 'audio' and not is_momod(msg) then 
 local text = 'للمشرفين فقط عزيزي 👿'
