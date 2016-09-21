@@ -24,7 +24,7 @@ local function master(msg, matches)
   end 
 
   if matches[1] == "صنع" then 
-     --return " cods simsim by @iq_plus and @dev_2 " 
+     --return "  " 
 
   end 
 end 
