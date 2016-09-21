@@ -1,20 +1,23 @@
 do 
 
-local function oscarteam(msg, matches) 
-  if matches[1] == "/lock zahif" then 
+local function masterteam(msg, matches)
+local master = msg['id'] 
+  if matches[1] == "/lk zahif" then 
      local zahif = 'zahif:'..msg.to.id 
      redis:set(zahif, true) 
-     return " تم قفل  كلمات الزواحف في المجموعة{✔️}😉❤️ " 
+     local text = " تم قفل  كلمات الزواحف في المجموعة{✔️}😉❤️ " 
+     reply_msg(master, text, ok_cb, true) 
   end 
 
-  if matches[1] == "/unlock zahif" then 
+  if matches[1] == "/ulk zahif" then 
      local zahif = 'zahif:'..msg.to.id 
      redis:del(zahif) 
-     return " تم فتح  كلمات الزواحف في المجموعة{✔️}😅❤️ " 
+     local text = " تم فتح  كلمات الزواحف في المجموعة{✔️}😅❤️ " 
+     reply_msg(master, text, ok_cb, true) 
   end 
 
   if matches[1] == "صنع" then 
-     --return " cods simsim by @iq_plus and @dev_2 " 
+     --return " " 
 
   end 
 end 
@@ -23,8 +26,8 @@ return {
   patterns = { 
      "(.*)" 
   }, 
-  run = oscarteam, 
+  run = masterteam, 
 } 
 
 end 
--- @dev_2
+--MASTER TEAM -_-
